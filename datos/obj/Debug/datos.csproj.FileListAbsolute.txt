@@ -1,0 +1,10 @@
+C:\Users\NITRO\source\repos\datos\datos\bin\Debug\datos.dll
+C:\Users\NITRO\source\repos\datos\datos\bin\Debug\datos.pdb
+C:\Users\NITRO\source\repos\datos\datos\obj\Debug\datos.csproj.AssemblyReference.cache
+C:\Users\NITRO\source\repos\datos\datos\obj\Debug\datos.csproj.CoreCompileInputs.cache
+C:\Users\NITRO\source\repos\datos\datos\obj\Debug\datos.dll
+C:\Users\NITRO\source\repos\datos\datos\obj\Debug\datos.pdb
+C:\Users\NITRO\source\repos\datos\datos\bin\Debug\datos.dll.config
+C:\Users\NITRO\source\repos\datos\datos\bin\Debug\entidades.dll
+C:\Users\NITRO\source\repos\datos\datos\bin\Debug\entidades.pdb
+C:\Users\NITRO\source\repos\datos\datos\obj\Debug\datos.csproj.CopyComplete

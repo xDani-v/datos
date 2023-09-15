@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BibliotecaRenta" Class="rentaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DANIEL;Initial Catalog=BibliotecaRenta;Integrated Security=True" SettingsObjectName="datos.Properties.Settings" SettingsPropertyName="BibliotecaRentaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Clientes" Member="Clientes">
+    <Type Name="Clientes">
+      <Column Name="ClienteID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Clientes_Ventas" Member="Ventas" ThisKey="ClienteID" OtherKey="ClienteID" Type="Ventas" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuarios" Member="Usuarios">
+    <Type Name="Usuarios">
+      <Column Name="UsuarioID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreUsuario" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Correo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Contraseña" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Rol" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Usuarios_Ventas" Member="Ventas" ThisKey="UsuarioID" OtherKey="UsuarioID" Type="Ventas" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Autores" Member="Autores">
+    <Type Name="Autores">
+      <Column Name="AutorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Autores_Libros" Member="Libros" ThisKey="AutorID" OtherKey="AutorID" Type="Libros" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Editoriales" Member="Editoriales">
+    <Type Name="Editoriales">
+      <Column Name="EditorialID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreEditorial" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Editoriales_Libros" Member="Libros" ThisKey="EditorialID" OtherKey="EditorialID" Type="Libros" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categorias" Member="Categorias">
+    <Type Name="Categorias">
+      <Column Name="CategoriaID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreCategoria" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Categorias_Libros" Member="Libros" ThisKey="CategoriaID" OtherKey="CategoriaID" Type="Libros" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lenguajes" Member="Lenguajes">
+    <Type Name="Lenguajes">
+      <Column Name="LenguajeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NombreLenguaje" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Lenguajes_Libros" Member="Libros" ThisKey="LenguajeID" OtherKey="LenguajeID" Type="Libros" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Venta_Detalle" Member="Venta_Detalle">
+    <Type Name="Venta_Detalle">
+      <Column Name="VentaDetalleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VentaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LibroID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Ventas_Venta_Detalle" Member="Ventas" ThisKey="VentaID" OtherKey="VentaID" Type="Ventas" IsForeignKey="true" />
+      <Association Name="Libros_Venta_Detalle" Member="Libros" ThisKey="LibroID" OtherKey="LibroID" Type="Libros" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ventas" Member="Ventas">
+    <Type Name="Ventas">
+      <Column Name="VentaID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClienteID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FechaRenta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FechaDevolucion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="FechaRealDevolucion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Multa" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Ventas_Venta_Detalle" Member="Venta_Detalle" ThisKey="VentaID" OtherKey="VentaID" Type="Venta_Detalle" />
+      <Association Name="Clientes_Ventas" Member="Clientes" ThisKey="ClienteID" OtherKey="ClienteID" Type="Clientes" IsForeignKey="true" />
+      <Association Name="Usuarios_Ventas" Member="Usuarios" ThisKey="UsuarioID" OtherKey="UsuarioID" Type="Usuarios" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Libros" Member="Libros">
+    <Type Name="Libros">
+      <Column Name="LibroID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Titulo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ISBN" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CategoriaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AutorID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EditorialID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LenguajeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Libros_Venta_Detalle" Member="Venta_Detalle" ThisKey="LibroID" OtherKey="LibroID" Type="Venta_Detalle" />
+      <Association Name="Autores_Libros" Member="Autores" ThisKey="AutorID" OtherKey="AutorID" Type="Autores" IsForeignKey="true" />
+      <Association Name="Categorias_Libros" Member="Categorias" ThisKey="CategoriaID" OtherKey="CategoriaID" Type="Categorias" IsForeignKey="true" />
+      <Association Name="Editoriales_Libros" Member="Editoriales" ThisKey="EditorialID" OtherKey="EditorialID" Type="Editoriales" IsForeignKey="true" />
+      <Association Name="Lenguajes_Libros" Member="Lenguajes" ThisKey="LenguajeID" OtherKey="LenguajeID" Type="Lenguajes" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_ActualizarCliente" Method="sp_ActualizarCliente">
+    <Parameter Name="ClienteID" Parameter="clienteID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Apellido" Parameter="apellido" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_EliminarCliente" Method="sp_EliminarCliente">
+    <Parameter Name="ClienteID" Parameter="clienteID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_LeerCliente" Method="sp_LeerCliente">
+    <Parameter Name="ClienteID" Parameter="clienteID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_LeerClienteResult">
+      <Column Name="ClienteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_InsertarCliente" Method="sp_InsertarCliente">
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Apellido" Parameter="apellido" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Direccion" Parameter="direccion" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Telefono" Parameter="telefono" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ListarClientes" Method="sp_ListarClientes">
+    <ElementType Name="sp_ListarClientesResult">
+      <Column Name="ClienteID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Direccion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Telefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ActualizarUsuario" Method="sp_ActualizarUsuario">
+    <Parameter Name="UsuarioID" Parameter="usuarioID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NombreUsuario" Parameter="nombreUsuario" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Correo" Parameter="correo" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Contraseña" Parameter="contraseña" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Rol" Parameter="rol" Type="System.String" DbType="NVarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_EliminarUsuario" Method="sp_EliminarUsuario">
+    <Parameter Name="UsuarioID" Parameter="usuarioID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_InsertarUsuario" Method="sp_InsertarUsuario">
+    <Parameter Name="NombreUsuario" Parameter="nombreUsuario" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Correo" Parameter="correo" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Contraseña" Parameter="contraseña" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Rol" Parameter="rol" Type="System.String" DbType="NVarChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_LeerUsuario" Method="sp_LeerUsuario">
+    <Parameter Name="UsuarioID" Parameter="usuarioID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_LeerUsuarioResult">
+      <Column Name="UsuarioID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreUsuario" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Correo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Contraseña" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Rol" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ListarUsuarios" Method="sp_ListarUsuarios">
+    <ElementType Name="sp_ListarUsuariosResult">
+      <Column Name="UsuarioID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreUsuario" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Correo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Contraseña" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Rol" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_CrearAutor" Method="sp_CrearAutor">
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Apellido" Parameter="apellido" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_EliminarAutor" Method="sp_EliminarAutor">
+    <Parameter Name="AutorID" Parameter="autorID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ListarAutores" Method="sp_ListarAutores">
+    <ElementType Name="sp_ListarAutoresResult">
+      <Column Name="AutorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ModificarAutor" Method="sp_ModificarAutor">
+    <Parameter Name="AutorID" Parameter="autorID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Apellido" Parameter="apellido" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ModificarEditorial" Method="sp_ModificarEditorial">
+    <Parameter Name="EditorialID" Parameter="editorialID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NombreEditorial" Parameter="nombreEditorial" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ListarEditoriales" Method="sp_ListarEditoriales">
+    <ElementType Name="sp_ListarEditorialesResult">
+      <Column Name="EditorialID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreEditorial" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_CrearEditorial" Method="sp_CrearEditorial">
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_EliminarEditorial" Method="sp_EliminarEditorial">
+    <Parameter Name="EditorialID" Parameter="editorialID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_CrearCategoria" Method="sp_CrearCategoria">
+    <Parameter Name="NombreCategoria" Parameter="nombreCategoria" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_EliminarCategoria" Method="sp_EliminarCategoria">
+    <Parameter Name="CategoriaID" Parameter="categoriaID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ListarCategorias" Method="sp_ListarCategorias">
+    <ElementType Name="sp_ListarCategoriasResult">
+      <Column Name="CategoriaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreCategoria" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ModificarCategoria" Method="sp_ModificarCategoria">
+    <Parameter Name="CategoriaID" Parameter="categoriaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NombreCategoria" Parameter="nombreCategoria" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ModificarLenguaje" Method="sp_ModificarLenguaje">
+    <Parameter Name="LenguajeID" Parameter="lenguajeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NombreLenguaje" Parameter="nombreLenguaje" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ListarLenguajes" Method="sp_ListarLenguajes">
+    <ElementType Name="sp_ListarLenguajesResult">
+      <Column Name="LenguajeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NombreLenguaje" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_EliminarLibro" Method="sp_EliminarLibro">
+    <Parameter Name="LibroID" Parameter="libroID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_EliminarLenguaje" Method="sp_EliminarLenguaje">
+    <Parameter Name="LenguajeID" Parameter="lenguajeID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_CrearLenguaje" Method="sp_CrearLenguaje">
+    <Parameter Name="NombreLenguaje" Parameter="nombreLenguaje" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ListarVentas" Method="sp_ListarVentas">
+    <ElementType Name="sp_ListarVentasResult">
+      <Column Name="VentaID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ClienteID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UsuarioID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FechaRenta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FechaDevolucion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="FechaRealDevolucion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Multa" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_InsertarVentaDetalle" Method="sp_InsertarVentaDetalle">
+    <Parameter Name="VentaID" Parameter="ventaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LibroID" Parameter="libroID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Cantidad" Parameter="cantidad" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Precio" Parameter="precio" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_InsertarVenta" Method="sp_InsertarVenta">
+    <Parameter Name="ClienteID" Parameter="clienteID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UsuarioID" Parameter="usuarioID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FechaRenta" Parameter="fechaRenta" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="FechaDevolucion" Parameter="fechaDevolucion" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Total" Parameter="total" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="NewVentaID" Parameter="newVentaID" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ListarVentaDetalle" Method="sp_ListarVentaDetalle">
+    <Parameter Name="VentaID" Parameter="ventaID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_ListarVentaDetalleResult">
+      <Column Name="VentaDetalleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VentaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LibroID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_ModificarLibro" Method="sp_ModificarLibro">
+    <Parameter Name="LibroID" Parameter="libroID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Titulo" Parameter="titulo" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="ISBN" Parameter="iSBN" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="CategoriaID" Parameter="categoriaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AutorID" Parameter="autorID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EditorialID" Parameter="editorialID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LenguajeID" Parameter="lenguajeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Stock" Parameter="stock" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Tipo" Parameter="tipo" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Precio" Parameter="precio" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_CrearLibro" Method="sp_CrearLibro">
+    <Parameter Name="Titulo" Parameter="titulo" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="ISBN" Parameter="iSBN" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="CategoriaID" Parameter="categoriaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AutorID" Parameter="autorID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EditorialID" Parameter="editorialID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LenguajeID" Parameter="lenguajeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Stock" Parameter="stock" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Tipo" Parameter="tipo" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Precio" Parameter="precio" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ListarLibros" Method="sp_ListarLibros">
+    <ElementType Name="sp_ListarLibrosResult">
+      <Column Name="LibroID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Titulo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ISBN" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CategoriaID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AutorID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EditorialID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LenguajeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Stock" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_DevolverLibros" Method="sp_DevolverLibros">
+    <Parameter Name="VentaID" Parameter="ventaID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FechaRealDevolucion" Parameter="fechaRealDevolucion" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_VistaVentas" Method="sp_VistaVentas">
+    <ElementType Name="sp_VistaVentasResult">
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Apellido" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FechaRenta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FechaDevolucion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Total" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="FechaRealDevolucion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Multa" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

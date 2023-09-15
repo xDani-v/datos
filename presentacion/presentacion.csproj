@@ -1,0 +1,528 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EB25CF38-9DFF-400E-B59A-1D5D2025FF6F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>presentacion</RootNamespace>
+    <AssemblyName>presentacion</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.4.3\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\fAutor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\fAutor.Designer.cs">
+      <DependentUpon>fAutor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\fCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\fCategoria.Designer.cs">
+      <DependentUpon>fCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\fCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\fCliente.Designer.cs">
+      <DependentUpon>fCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\fdevolver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\fdevolver.Designer.cs">
+      <DependentUpon>fdevolver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\fEditorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\fEditorial.Designer.cs">
+      <DependentUpon>fEditorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\fLenguaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\fLenguaje.Designer.cs">
+      <DependentUpon>fLenguaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\fLibro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\fLibro.Designer.cs">
+      <DependentUpon>fLibro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\fUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\fUsuario.Designer.cs">
+      <DependentUpon>fUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\fVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\fVenta.Designer.cs">
+      <DependentUpon>fVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\dsCategoria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCategoria.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\dsCliente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCliente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\dsEditorial.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEditorial.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\dsLibro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLibro.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DsReporte.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsReporte.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\dsUsuario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsUsuario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\dsVenta.cs">
+      <DependentUpon>dsVenta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\dsVenta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsVenta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\rAutor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rAutor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rCategoria.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rCategoria.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rCliente.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rCliente.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rEditorial.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rEditorial.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rLibros.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rLibros.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rUsuario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rUsuario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\rVenta.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rVenta.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\vrAutor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\vrAutor.Designer.cs">
+      <DependentUpon>vrAutor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\vrCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\vrCategoria.Designer.cs">
+      <DependentUpon>vrCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\vrCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\vrCliente.Designer.cs">
+      <DependentUpon>vrCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\vrEditorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\vrEditorial.Designer.cs">
+      <DependentUpon>vrEditorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\vrLibro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\vrLibro.Designer.cs">
+      <DependentUpon>vrLibro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\vrUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\vrUsuario.Designer.cs">
+      <DependentUpon>vrUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\vrVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\vrVenta.Designer.cs">
+      <DependentUpon>vrVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\vAutor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\vAutor.Designer.cs">
+      <DependentUpon>vAutor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\vCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\vCategoria.Designer.cs">
+      <DependentUpon>vCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\vClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\vClientes.Designer.cs">
+      <DependentUpon>vClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\vDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\vDetalle.Designer.cs">
+      <DependentUpon>vDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\vEditorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\vEditorial.Designer.cs">
+      <DependentUpon>vEditorial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\vEncuesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\vEncuesta.Designer.cs">
+      <DependentUpon>vEncuesta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\vLenguaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\vLenguaje.Designer.cs">
+      <DependentUpon>vLenguaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\vLibros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\vLibros.Designer.cs">
+      <DependentUpon>vLibros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\vUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\vUsuarios.Designer.cs">
+      <DependentUpon>vUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\vVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\vVenta.Designer.cs">
+      <DependentUpon>vVenta.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\fAutor.resx">
+      <DependentUpon>fAutor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\fCategoria.resx">
+      <DependentUpon>fCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\fCliente.resx">
+      <DependentUpon>fCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\fdevolver.resx">
+      <DependentUpon>fdevolver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\fEditorial.resx">
+      <DependentUpon>fEditorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\fLenguaje.resx">
+      <DependentUpon>fLenguaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\fLibro.resx">
+      <DependentUpon>fLibro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\fUsuario.resx">
+      <DependentUpon>fUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\fVenta.resx">
+      <DependentUpon>fVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Reportes\rAutor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rAutor.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rCategoria.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rCategoria.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rCliente.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rCliente.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rEditorial.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rEditorial.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rLibros.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rLibros.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rUsuario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rUsuario.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rVenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rVenta.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\vrAutor.resx">
+      <DependentUpon>vrAutor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\vrCategoria.resx">
+      <DependentUpon>vrCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\vrCliente.resx">
+      <DependentUpon>vrCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\vrEditorial.resx">
+      <DependentUpon>vrEditorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\vrLibro.resx">
+      <DependentUpon>vrLibro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\vrUsuario.resx">
+      <DependentUpon>vrUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\vrVenta.resx">
+      <DependentUpon>vrVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\vAutor.resx">
+      <DependentUpon>vAutor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\vCategoria.resx">
+      <DependentUpon>vCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\vClientes.resx">
+      <DependentUpon>vClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\vDetalle.resx">
+      <DependentUpon>vDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\vEditorial.resx">
+      <DependentUpon>vEditorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\vEncuesta.resx">
+      <DependentUpon>vEncuesta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\vLenguaje.resx">
+      <DependentUpon>vLenguaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\vLibros.resx">
+      <DependentUpon>vLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\vUsuarios.resx">
+      <DependentUpon>vUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\vVenta.resx">
+      <DependentUpon>vVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Reportes\dsCategoria.xsc">
+      <DependentUpon>dsCategoria.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\dsCategoria.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCategoria.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\dsCategoria.xss">
+      <DependentUpon>dsCategoria.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\dsCliente.xsc">
+      <DependentUpon>dsCliente.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\dsCliente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCliente.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\dsCliente.xss">
+      <DependentUpon>dsCliente.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\dsEditorial.xsc">
+      <DependentUpon>dsEditorial.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\dsEditorial.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEditorial.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\dsEditorial.xss">
+      <DependentUpon>dsEditorial.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\dsLibro.xsc">
+      <DependentUpon>dsLibro.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\dsLibro.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLibro.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\dsLibro.xss">
+      <DependentUpon>dsLibro.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DsReporte.xsc">
+      <DependentUpon>DsReporte.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DsReporte.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsReporte.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DsReporte.xss">
+      <DependentUpon>DsReporte.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\dsUsuario.xsc">
+      <DependentUpon>dsUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\dsUsuario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsUsuario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\dsUsuario.xss">
+      <DependentUpon>dsUsuario.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\dsVenta.xsc">
+      <DependentUpon>dsVenta.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\dsVenta.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsVenta.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\dsVenta.xss">
+      <DependentUpon>dsVenta.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\entidades\entidades.csproj">
+      <Project>{9C8E931B-2DA3-42D2-B910-B8D5509C9B63}</Project>
+      <Name>entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\negocio\negocio.csproj">
+      <Project>{7691e9c1-efd4-4ef5-8bec-10810fdee928}</Project>
+      <Name>negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

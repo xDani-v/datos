@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.5, 8.5" name="renta">
+  <DataContextMoniker Name="/rentaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="b6508faf-4279-47a7-b84e-e774e380f304" absoluteBounds="2.875, 2.375, 2, 1.9631982421875">
+      <DataClassMoniker Name="/rentaDataContext/Clientes" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ca1d720-c431-47e7-aad6-0a77473c858e" absoluteBounds="2.89, 2.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ae707cc7-e2fd-404e-961d-cae214a4238c" absoluteBounds="5.75, 0.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/rentaDataContext/Usuarios" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0878179a-b7aa-4718-bc3b-442974ed2194" absoluteBounds="5.7650000000000006, 1.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6df03485-4bc4-492e-b205-147c5b1a96f3" absoluteBounds="0.5, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/rentaDataContext/Autores" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2cbd4b75-9a49-44eb-abba-7a3d66df32f5" absoluteBounds="0.51500000000000012, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ab3d771-8f56-4c29-a36c-84c3b5e32836" absoluteBounds="3.625, 5.25, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/rentaDataContext/Editoriales" />
+      <nestedChildShapes>
+        <elementListCompartment Id="71aa6076-cbb8-40f0-9ffb-61f9cfd09c29" absoluteBounds="3.6399999999999997, 5.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b00b709b-519d-4b35-a1ba-1686f812a8e4" absoluteBounds="0.625, 3.375, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/rentaDataContext/Categorias" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6a1b005d-7277-4d78-82d7-760279cd1834" absoluteBounds="0.64, 3.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="105ee816-6899-4505-923b-236a539e01e1" absoluteBounds="1.125, 6.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/rentaDataContext/Lenguajes" />
+      <nestedChildShapes>
+        <elementListCompartment Id="82505f14-ec38-4226-a774-12b9b824bd26" absoluteBounds="1.1400000000000001, 7.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="49f16641-bf9f-48fd-997d-5222360c1749" absoluteBounds="12.25, 2.625, 2, 1.7708968098958326">
+      <DataClassMoniker Name="/rentaDataContext/Venta_Detalle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="409e2f0d-36d7-4fa0-b9c2-6b9386b6da9e" absoluteBounds="12.265, 3.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e9899ad9-c05e-43e8-9154-75f47aa636bf" absoluteBounds="9.5, 1.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/rentaDataContext/Ventas" />
+      <nestedChildShapes>
+        <elementListCompartment Id="26b75ce5-7873-45bd-a7d8-d30b57947ff6" absoluteBounds="9.515, 1.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.5 : 3.17390055338542); (12.25 : 3.17390055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/rentaDataContext/Ventas/Ventas_Venta_Detalle" />
+      <nodes>
+        <classShapeMoniker Id="e9899ad9-c05e-43e8-9154-75f47aa636bf" />
+        <classShapeMoniker Id="49f16641-bf9f-48fd-997d-5222360c1749" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.875 : 3.24924967447917); (9.5 : 3.24924967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/rentaDataContext/Clientes/Clientes_Ventas" />
+      <nodes>
+        <classShapeMoniker Id="b6508faf-4279-47a7-b84e-e774e380f304" />
+        <classShapeMoniker Id="e9899ad9-c05e-43e8-9154-75f47aa636bf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.75 : 2.04409912109375); (9.5 : 2.04409912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/rentaDataContext/Usuarios/Usuarios_Ventas" />
+      <nodes>
+        <classShapeMoniker Id="ae707cc7-e2fd-404e-961d-cae214a4238c" />
+        <classShapeMoniker Id="e9899ad9-c05e-43e8-9154-75f47aa636bf" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d11392bf-61ef-4887-974c-c7d9292ab022" absoluteBounds="7, 4.375, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/rentaDataContext/Libros" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3c001d6c-3c91-4afd-8070-0a43a8e534ed" absoluteBounds="7.015, 4.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9 : 5.751650890625); (13.25 : 5.751650890625); (13.25 : 4.39589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/rentaDataContext/Libros/Libros_Venta_Detalle" />
+      <nodes>
+        <classShapeMoniker Id="d11392bf-61ef-4887-974c-c7d9292ab022" />
+        <classShapeMoniker Id="49f16641-bf9f-48fd-997d-5222360c1749" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(0.53125 : 2.1362939453125); (0.53125 : 4.90949625651042); (7 : 4.90949625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/rentaDataContext/Autores/Autores_Libros" />
+      <nodes>
+        <classShapeMoniker Id="6df03485-4bc4-492e-b205-147c5b1a96f3" />
+        <classShapeMoniker Id="d11392bf-61ef-4887-974c-c7d9292ab022" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(0.84375 : 4.56899251302083); (0.84375 : 5.07975062825521); (7 : 5.07975062825521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/rentaDataContext/Categorias/Categorias_Libros" />
+      <nodes>
+        <classShapeMoniker Id="b00b709b-519d-4b35-a1ba-1686f812a8e4" />
+        <classShapeMoniker Id="d11392bf-61ef-4887-974c-c7d9292ab022" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.625 : 5.84699625651042); (7 : 5.84699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/rentaDataContext/Editoriales/Editoriales_Libros" />
+      <nodes>
+        <classShapeMoniker Id="4ab3d771-8f56-4c29-a36c-84c3b5e32836" />
+        <classShapeMoniker Id="d11392bf-61ef-4887-974c-c7d9292ab022" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.125 : 6.86620198567708); (7 : 6.86620198567708)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/rentaDataContext/Lenguajes/Lenguajes_Libros" />
+      <nodes>
+        <classShapeMoniker Id="105ee816-6899-4505-923b-236a539e01e1" />
+        <classShapeMoniker Id="d11392bf-61ef-4887-974c-c7d9292ab022" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

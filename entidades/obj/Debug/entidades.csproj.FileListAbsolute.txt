@@ -1,0 +1,6 @@
+C:\Users\NITRO\source\repos\datos\entidades\bin\Debug\entidades.dll
+C:\Users\NITRO\source\repos\datos\entidades\bin\Debug\entidades.pdb
+C:\Users\NITRO\source\repos\datos\entidades\obj\Debug\entidades.csproj.AssemblyReference.cache
+C:\Users\NITRO\source\repos\datos\entidades\obj\Debug\entidades.csproj.CoreCompileInputs.cache
+C:\Users\NITRO\source\repos\datos\entidades\obj\Debug\entidades.dll
+C:\Users\NITRO\source\repos\datos\entidades\obj\Debug\entidades.pdb
